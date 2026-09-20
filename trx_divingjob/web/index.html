@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trx_divingjob</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dive tablet (same frame and sizes as trx_taxijob / trx_busjob / trx_garbagejob) -->
+    <div id="tablet-wrap" hidden>
+        <div id="tablet" class="tablet">
+            <div class="bezel-cam"></div>
+            <div class="screen">
+                <header class="statusbar">
+                    <div class="brand">
+                        <div class="brand-mark dive"><span>DIVE</span></div>
+                        <div class="brand-text">
+                            <strong id="company">Dive Co.</strong>
+                            <small id="company-sub">Dive terminal</small>
+                        </div>
+                    </div>
+                    <div class="clock" id="clock">--:--</div>
+                    <div class="driver-chip" id="driver-chip"></div>
+                    <button class="icon-btn" data-action="close" title="Close (Esc)" aria-label="Close"></button>
+                </header>
+
+                <div class="body" id="body">
+                    <nav class="rail" id="rail"></nav>
+
+                    <main class="main" id="main">
+                        <div class="error" id="banner" hidden></div>
+                        <div id="flash" hidden></div>
+                        <section class="view" data-view="contracts" id="view-contracts"></section>
+                        <section class="view" data-view="shop" id="view-shop" hidden></section>
+                        <section class="view" data-view="boats" id="view-boats" hidden></section>
+                        <section class="view" data-view="board" id="view-board" hidden></section>
+                        <section class="view" data-view="diver" id="view-diver" hidden></section>
+                        <section class="view" data-view="rewards" id="view-rewards" hidden></section>
+                    </main>
+
+                    <aside class="ticket" id="ticket"></aside>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- dive HUD, drawn by app.js -->
+    <div id="hud" class="hud" hidden></div>
+
+    <!-- contract summary -->
+    <div id="summary" class="summary" hidden></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

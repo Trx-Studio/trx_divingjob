@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxygen HUD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.5.18/dist/vue.global.prod.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="showOxygen" class="oxygen-hud" :class="[ oxygenPercentage <= 10 ? 'critical' : (oxygenPercentage <= 20 ? 'warning' : 'ok') ]">
+            <div class="hud-card">
+                <div class="o2-gauge">
+                    <div class="ring" :style="{ '--deg': (oxygenPercentage * 3.6) + 'deg' }"></div>
+                    <div class="center">
+                        <div class="value">{{ oxygenPercentage }}%</div>
+                        <div class="label">O₂</div>
+                    </div>
+                </div>
+                <div class="readouts">
+                    <div class="stat">
+                        <span class="stat-label">TIME</span>
+                        <span class="stat-value">{{ formatTime(timeRemaining) }}</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">DEPTH</span>
+                        <span class="stat-value">{{ formatDepth(depth) }}</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">GEAR</span>
+                        <span class="stat-value" :class="hasDivingGear ? 'on' : 'off'">{{ hasDivingGear ? 'ON' : 'OFF' }}</span>
+                    </div>
+                </div>
+                <div class="breath" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
